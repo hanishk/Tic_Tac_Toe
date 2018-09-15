@@ -1,8 +1,12 @@
 package com.xyz.tictactoe;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +18,19 @@ import com.google.android.gms.ads.MobileAds;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private AdView mAdView;
+    private Button[][] buttons = new Button[3][3];
+
+    private int roundCount;
+
+    private boolean player1Turn=true;
+
+    private int player1Points;
+    private int player2Points;
+    private int drawPoints;
+
+    private TextView textViewPlayer1;
+    private  TextView textViewPlayer2;
+    private TextView textViewDraw;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -35,19 +52,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         player1Turn=savedInstanceState.getBoolean("player1Turn");
     }
 
-    private Button[][] buttons = new Button[3][3];
-
-    private int roundCount;
-
-    private boolean player1Turn=true;
-
-    private int player1Points;
-    private int player2Points;
-    private int drawPoints;
-
-    private TextView textViewPlayer1;
-    private  TextView textViewPlayer2;
-    private TextView textViewDraw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +65,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+//        if(Build.VERSION.SDK_INT >=21) {
+//            Window window=this.getWindow();
+//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+//            window.setStatusBarColor(Color.parseColor("#808080"));
+////            this.getResources().getColor()
+//        }
     textViewPlayer1=findViewById(R.id.play1);
     textViewPlayer2=findViewById(R.id.play2);
     textViewDraw=findViewById(R.id.draw);
@@ -82,9 +94,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public void onClick(View v) {
             resetGame();
+            addReload();
             //set All buttons Empty and player score becomes 0
         }
     });
+
      Button btnClear=findViewById(R.id.btnclear);
      btnClear.setOnClickListener(new View.OnClickListener() {
          @Override
@@ -94,7 +108,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      });
 
     }
-
 
     @Override
     public void onClick(View v) {
@@ -174,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        Toast.makeText(this,"Draw",Toast.LENGTH_SHORT).show();
        UpdatePointsText();
        resetBoard();
-        }
+       }
 
        private void UpdatePointsText(){
      textViewPlayer1.setText("Player X : " +player1Points);
@@ -187,6 +200,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for(int i=0;i<3;i++){
             for(int j=0;j<3;j++){
                 buttons[i][j].setText("");
+                addReload();
+
             }
         }
         roundCount=0;
@@ -201,6 +216,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         resetBoard();
        }
 
-
-
+       private void addReload(){
+           mAdView = findViewById(R.id.adView);
+           AdRequest adRequest = new AdRequest.Builder().build();
+           mAdView.loadAd(adRequest);
+       }
 }
