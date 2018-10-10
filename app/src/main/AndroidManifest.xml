@@ -9,13 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".MainActivity"
-            android:screenOrientation="sensorPortrait">
-
-
-        </activity>
-        <activity android:name=".HomePage"
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="sensorPortrait"></activity>
+        <activity
+            android:name=".HomePage"
             android:screenOrientation="sensorPortrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +24,9 @@
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="REPLACE_WITH_YOUR_ADMOB_APP_ID"/>
+            android:value="REPLACE_WITH_YOUR_ADMOB_APP_ID" />
+
+        <activity android:name=".MultiPlayer"></activity>
     </application>
 
 </manifest>

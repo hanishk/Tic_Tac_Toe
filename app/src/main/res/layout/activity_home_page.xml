@@ -7,7 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".HomePage">
 
+
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
@@ -26,15 +28,28 @@
         android:textSize="64sp" />
 
     <TextView
+        android:id="@+id/touchSingle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Single Player"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
+
+    <TextView
         android:id="@+id/touch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="174dp"
-        android:text="Touch Here To Play"
+        android:layout_below="@+id/touchSingle"
+        android:text="MultiPlayer"
+        android:layout_marginTop="20dp"
         android:textColor="@android:color/white"
-        android:textSize="24sp" />
+        android:textSize="30sp" />
+
 
     <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
@@ -43,7 +58,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-3355224362612000/9159938179"></com.google.android.gms.ads.AdView>
+        ads:adUnitId="ca-app-pub-4419584713511203/5402180045/"></com.google.android.gms.ads.AdView>
 
 
 </RelativeLayout>

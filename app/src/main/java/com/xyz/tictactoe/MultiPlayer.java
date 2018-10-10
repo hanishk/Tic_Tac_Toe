@@ -1,12 +1,8 @@
 package com.xyz.tictactoe;
 
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,7 +11,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MultiPlayer extends AppCompatActivity implements View.OnClickListener{
 
     private AdView mAdView;
     private Button[][] buttons = new Button[3][3];
@@ -56,12 +52,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_multi_player);
 //        // hiding the status bar
 //        View decorView = getWindow().getDecorView();
 //        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
 //        decorView.setSystemUiVisibility(uiOptions);
-        MobileAds.initialize(this, "ca-app-pub-3355224362612000~2584094991");
+        MobileAds.initialize(this, "ca-app-pub-4419584713511203~6582813048");
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -94,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public void onClick(View v) {
             resetGame();
-            addReload();
+//            addReload();
             //set All buttons Empty and player score becomes 0
         }
     });
@@ -200,7 +196,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for(int i=0;i<3;i++){
             for(int j=0;j<3;j++){
                 buttons[i][j].setText("");
-                addReload();
+//                addReload();
 
             }
         }
@@ -216,9 +212,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         resetBoard();
        }
 
-       private void addReload(){
-           mAdView = findViewById(R.id.adView);
-           AdRequest adRequest = new AdRequest.Builder().build();
-           mAdView.loadAd(adRequest);
-       }
+//       private void addReload(){
+//           mAdView = findViewById(R.id.adView);
+//           AdRequest adRequest = new AdRequest.Builder().build();
+//           mAdView.loadAd(adRequest);
+//       }
 }

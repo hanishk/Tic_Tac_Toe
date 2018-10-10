@@ -10,28 +10,41 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-public class HomePage extends AppCompatActivity {
+public class            HomePage extends AppCompatActivity  {
 
     private AdView mAdView;
-private TextView txtView;
+    private TextView singlePlayer,multiPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        MobileAds.initialize(this, "ca-app-pub-3355224362612000~2584094991");
+        MobileAds.initialize(this, "ca-app-pub-4419584713511203~6582813048");
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        txtView=findViewById(R.id.touch);
-        txtView.setOnClickListener(new View.OnClickListener() {
+        multiPlayer=findViewById(R.id.touch);
+        singlePlayer=findViewById(R.id.touchSingle);
+
+        singlePlayer.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent=new Intent(HomePage.this,SinglePlayer.class);
+                startActivity(intent);
+            }
+
+        });
+        multiPlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(HomePage.this,MainActivity.class);
+                Intent intent=new Intent(HomePage.this,MultiPlayer.class);
                 startActivity(intent);
             }
         });
+
+
+
 
 
     }

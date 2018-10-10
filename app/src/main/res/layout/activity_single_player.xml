@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
+    tools:context=".MultiPlayer"
     android:background="@drawable/back1"
     >
 
@@ -73,16 +73,16 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-           <Button
+        <Button
 
-               android:freezesText="true"
-               android:id="@+id/btn00"
-               android:layout_width="0dp"
-               android:layout_height="match_parent"
-               android:layout_weight="1"
-               android:textSize="60sp"
+            android:freezesText="true"
+            android:id="@+id/btn00"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="60sp"
 
-               />
+            />
 
         <Button
             android:id="@+id/btn01"
@@ -170,18 +170,18 @@
 
     </LinearLayout>
 
-    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-3355224362612000/9159938179"></com.google.android.gms.ads.AdView>
+    <!--<com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"-->
+        <!--android:id="@+id/adView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--ads:adSize="SMART_BANNER"-->
+        <!--ads:adUnitId="ca-app-pub-3355224362612000/9159938179"></com.google.android.gms.ads.AdView>-->
 
 
 
 
-    </LinearLayout>
+</LinearLayout>
 
 
