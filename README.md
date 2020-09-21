@@ -1,4 +1,4 @@
 # Tic_Tac_Toe
-<img src = "img/MainScreen.jpg">
-<img src = "img/GameScreen.jpg">
-<img src = "img/ScoreCount.jpg">
+<img src = "img/MainScreen.jpg width= "250px"">
+<img src = "img/GameScreen.jpg width= "250px"">
+<img src = "img/ScoreCount.jpg width= "250px"">
